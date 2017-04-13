@@ -1,0 +1,64 @@
+﻿SQL Developer Taller
+
+
+conexión github
+
+https://github.com/juanarango86/Oracle/invitations
+
+https://github.com/juanarango86/Oracle.git  ←- este es...
+
+
+
+--PUNTO1
+--1. Crear 2 Tablespaces: uno con 1 Gb y 2 datafiles, tablespace debe ser llamado "vehicles_fleet" Y el otro con el nombre "test_purposes" con 500 Mb y 1 archivo de datos. (0,5)
+
+CREATE TABLESPACE vehicles_fleet datafile
+'C:\oraclexe\app\oracle\oradata\vehicles_fleet_1.dbf' size 512M,
+'C:\oraclexe\app\oracle\oradata\vehicles_fleet_2.dbf' size 512M,
+
+CREATE TABLESPACE test_purposes datafile
+'C:\oraclexe\app\oracle\oradata\test_purposes.dbf' size 500M,
+AUTOEXTEND ON NEXT 500K MAXSIZE 500M
+
+--PUNTO2
+--2. Cree un tablespace Undo con 5Mb de espacio y 1 archivo de datos (0.5)
+
+--PUNTO3
+--3. Establezca el espacio de tabla de deshacer que se va a utilizar en el sistema (0.5)
+
+--PUNTO4
+--4. Cree un usuario DBA y asignarlo al espacio de tablas denominado "vehicles_fleet", este usuario tiene ilimitado Espacio en el espacio de tablas (0.5)
+
+--PUNTO5
+--5. Asigne la función dba y los permisos para conectarse al usuario que acaba de crear (0.5)
+
+
+--PUNTO6
+--6. Create 3 profiles. (0.5)
+
+--a. Profile 1: " manager_profile " password life 40 days, one session per user, 15 minutes idle, 4
+  failed login attempts
+
+--b. Profile 2: " finance_profile " password life 15 days, one session per user, 5 minutes idle, 2
+  failed login attempts
+
+--c. Profile 3: " service_profile " password life 20 days, one session per user, 10 minutes idle, 3
+  failed login attempts
+
+--d. Profile 4: " development " password life 100 days, two session per user, 30 minutes idle, no
+  failed login attempts
+
+--PUNTO7
+--7. Crear 1 rol con el nombre "without_privileges" y revocar TODOS LOS PRIVILEGIOS (0.5)
+
+--PUNTO8
+--8. Crear 4 usuarios, asignarles el espacio de tablas "vehicles_fleet"; Perfiles creados deben utilizarse para la
+--Usuarios, todos los usuarios deben permitir conectarse a la base de datos. Utilice la función "without_privileges" para
+--Usuarios asociados con perfiles: manager_profile, finance_profile y service_profile. (0,5)
+
+--PUNTO9
+--9. Bloquee los usuarios asociados con perfiles: manager_profile, finance_profile y service_profile. (0,5)
+
+
+--PUNTO10
+--10. Elimine el espacio de tablas denominado "test_purposes" (0.5)
